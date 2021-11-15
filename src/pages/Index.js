@@ -66,14 +66,16 @@ const Index = (props) => {
     return (
       <section>
         {form}
-        {props.bookmarks.map((bookmark) => {
-          return (<div key={bookmark._id} className="bookmark">
-            <Link to={`/bookmark/${bookmark._id}`}>
-              <h1>{bookmark.title}</h1>
-            </Link>
-            <a href={bookmark.url}>Go to site</a>
-          </div>)
-        })}
+        <div className="bookmark-container">
+          {props.bookmarks.map((bookmark) => {
+            return (<div key={bookmark._id} className="bookmark">
+              <Link to={`/bookmark/${bookmark._id}`}>
+                <h1>{bookmark.title}</h1>
+              </Link>
+              <a href={bookmark.url}>Go to site</a>
+            </div>)
+          })}
+        </div>
       </section>
     )
   }

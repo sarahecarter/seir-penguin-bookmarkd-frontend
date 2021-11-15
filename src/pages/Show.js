@@ -70,13 +70,15 @@ const Show = (props) => {
   );
 
     return (
-      <div className="bookmark">
+      <div className="bookmark-show">
         <a href={bookmark.url} target="_blank">
           <h1>{bookmark.title}</h1>
         </a>
         <h3>{bookmark.description}</h3>
         {form}
-        <button onClick={removeBookmark}>Delete Bookmark</button>
+        <div className="btn-container">
+          <button onClick={removeBookmark}>Delete Bookmark</button>
+        </div>
       </div>
     );
   } else {
