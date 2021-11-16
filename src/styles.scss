@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+// =========================
+// Variables
+// =========================
+$primary-color: #05386B;
+$primary-light: #e7edf3;
+$primary-dark: #021222;
+$secondary-color: white;
+$tertiary-color: #379683;
+$tertiary-dark:  #297062;
+
+// =========================
+// Mixins
+// =========================
+@mixin white-text-blue-bg {
+  color: $secondary-color;
+  background-color: $primary-color;
+}
+
+@mixin white-text-green-bg {
+  color: $secondary-color;
+  background-color: $tertiary-color;
+}
+
+@mixin title-font {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+
+@mixin body-font {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+@mixin light-font {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+// =========================
+// Body/Main Styles
+// =========================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+}
+
+body {
+  @include body-font();
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+// =========================
+// Header
+// =========================
+
+nav {
+  @include white-text-blue-bg();
+  display: flex;
+  justify-content: flex-start;
+
+  a {
+    @include white-text-blue-bg();
+
+    #bookmark-icon {
+      margin: 0 5px 0 10px;
+    }
+
+    div {
+      margin: 10px;
+      font-size: large;
+
+      h1 {
+        @include title-font();
+      }
+    }
+
+  }
+
+}
+
+// =========================
+// Form
+// =========================
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $primary-light;
+  padding: 20px 10px;
+
+  legend {
+    @include title-font();
+    color: $tertiary-color;
+  }
+
+  input {
+    margin: 5px;
+    @include light-font();
+    padding: 5px;
+    width: 80%;
+    border-radius: 2px;
+    border: 1px solid $primary-color;
+  }
+
+  input[type="submit"] {
+    width: 150px;
+    @include white-text-green-bg();
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: $tertiary-dark;
+  }
+
+}
+
+// =========================
+// Bookmark cards
+// =========================
+.bookmark-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookmark {
+  @include white-text-green-bg();
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  width: 300px;
+
+  h1, a {
+    color: $secondary-color;
+  }
+  
+  a:hover {
+    color: #b5e48c;
+    transition: none;
+  }
+  
+  #pop-out-icon {
+    position: relative;
+    opacity: 0.7;
+    left: 3px;
+    font-size: .8em;
+  }
+}
+
+.bookmark:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 8px rgb(168, 167, 167);
+    background-color: $tertiary-dark;
+}
+
+// =========================
+// Show
+// =========================
+.bookmark-show {
+  h1 {
+    color: $tertiary-color;
+    margin: 20px;
+  }
+
+  h3 {
+    @include light-font();
+    margin: 10px auto 30px;
+    max-width: 650px;
+  }
+}
+
+.btn-container {
+  background-color: $primary-light;
+  margin: 0;
+  padding-bottom: 20px;
+
+  button {
+    @include white-text-blue-bg();
+    @include light-font();
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  button:hover {
+    background-color: $primary-dark;
+  }
+
+  #trash-can-icon {
+    position: relative;
+    bottom: .5px;
+    right: 3px;
+  }
+}
+
+// =========================
+// Media Queries
+// =========================
+@media screen and (min-width: 768px) {
+  form {
+    input {
+      width: 50%;
+    }
+  }
+
+  button {
+    width: 200px;
+  }
+
+  .bookmark-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .bookmark {
+    flex-basis: 45%;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    input {
+      width: 40%;
+    }
+  }
+
+  .bookmark {
+    flex-basis: 30%;
+  }
+
+}
