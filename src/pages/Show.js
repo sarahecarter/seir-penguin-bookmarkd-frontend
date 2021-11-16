@@ -77,7 +77,7 @@ const Show = (props) => {
         <h3>{bookmark.description}</h3>
         {form}
         <div className="btn-container">
-          <button onClick={removeBookmark}>Delete Bookmark</button>
+          <button onClick={removeBookmark}><i id="trash-can-icon" class="fa fa-trash"></i> Delete Bookmark</button>
         </div>
       </div>
     );
