@@ -72,7 +72,7 @@ const Index = (props) => {
               <Link to={`/bookmark/${bookmark._id}`}>
                 <h1>{bookmark.title}</h1>
               </Link>
-              <a href={bookmark.url}>Go to site</a>
+              <a href={bookmark.url} target="_blank">Go to site <i id="pop-out-icon" class="fa fa-external-link"></i></a>
             </div>)
           })}
         </div>
